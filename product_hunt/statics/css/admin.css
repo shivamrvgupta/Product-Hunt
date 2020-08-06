@@ -1,0 +1,76 @@
+#header {
+  height: auto !important;
+  background: #ed6663;
+  color: white;
+}
+.ml-2 {
+  margin-left: 10px;
+}
+#branding h1 {
+  color: #ffffff;
+}
+a:link,
+a:visited {
+  color: #447e9b;
+}
+div.breadcrumbs {
+  background: #59405c;
+  color: #f8f8f8;
+}
+div.breadcrumbs a {
+  color: #30caa0;
+}
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: #59405c;
+}
+button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+  background: #10284e;
+  color: white;
+}
+.typewriter h1 {
+  font-size: 25px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0 solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 1.5s steps(30, end), blink-caret infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffa600e1;
+  }
+}
+.submit-row {
+  background-color: #59405c;
+}
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff url("../img/loading2.svg") no-repeat center;
+
+  z-index: 999999;
+}

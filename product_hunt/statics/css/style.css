@@ -1,0 +1,168 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff url("../img/loading2.svg") no-repeat center;
+
+  z-index: 999999;
+}
+/* #loaders {
+  margin: 0%;
+  padding: 0%;
+  background-color: #fff;
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.obj {
+  width: 6px;
+  height: 40px;
+  background: #aaba97;
+  margin: 0 3px;
+  border-radius: 10px;
+  animation: loading 0.8s infinite;
+}
+.obj:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.obj:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.obj:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.obj:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.obj:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.obj:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.obj:nth-child(8) {
+  animation-delay: 0.7s;
+}
+@keyframes loading {
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 40px;
+  }
+  100% {
+    height: 0%;
+  }
+} */
+nav {
+  background-color: #da542fd5;
+}
+.typewriter h1 {
+  font-size: 25px;
+  color: #ffffff !important;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0 solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 1.5s steps(30, end), blink-caret infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffa600e1;
+  }
+}
+#main-footer {
+  background-color: #da542fd5 !important;
+}
+.wrapper .input-data {
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+.wrapper .input-data input {
+  height: 75%;
+  width: 75%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid silver;
+  outline: none !important;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #da542fd5;
+}
+.wrapper .input-data label {
+  position: absolute;
+  bottom: 10px;
+  left: 13%;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.input-data .underline {
+  position: absolute;
+  height: 2px;
+  width: 75%;
+  bottom: 25%;
+}
+.input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #da542fd5;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  left: 17%;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before {
+  transform: scaleX(1);
+}
+.wrapper button {
+  color: #fff;
+  background-color: #da542fd5;
+  outline: none !important;
+}
+#card-header {
+  background-color: #da542fd5 !important;
+  text-align: center !important;
+  height: 3rem;
+}
+.head {
+  margin-top: -0.2rem !important;
+}
+#login {
+  text-align: center !important;
+}

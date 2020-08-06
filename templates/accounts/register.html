@@ -1,0 +1,76 @@
+<div id="loading"></div>
+{% extends "base.html" %} 
+{% load humanize %}{% block title %} Register {% endblock %} 
+{% block content %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto ">
+          <div class="card">
+            <div id="card-header" class="card-header bg-primary text-white ">
+            <h4 class="head">Register</h4>
+            </div>
+            <div class="card-body">
+                              <!--Alerts-->
+                              {% include 'partials/_alerts.html' %}
+              <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <br />
+                <div class="wrapper">
+                  <div class="input-data">
+                    <input type="text" name="first_name"  required />
+                    <div class="underline"></div>
+                    <label>First Name</label>
+                  </div>
+                  <br />
+                  <div class="input-data">
+                    <input type="text" name="last_name"  required />
+                    <div class="underline"></div>
+                    <label>Lastname</label>
+                  </div>
+                <br />
+                
+                  <div class="input-data">
+                    <input type="username" name="username"   required />
+                    <div class="underline"></div>
+                    <label>Username</label>
+                  </div>
+                  <br />
+
+                  <div class="input-data">
+                    <input type="email" name="email" cla  required />
+                    <div class="underline"></div>
+                    <label>Email</label>
+                  </div>
+
+                  <br />
+                  <div class="input-data">
+                    <input type="password" name="password"   required />
+                    <div class="underline"></div>
+                    <label>Password</label>
+                  </div>
+
+                  <br />
+                  <div class="input-data">
+                    <input type="password" name="password2"  required />
+                    <div class="underline"></div>
+                    <label>Confirm Password</label>
+                  </div>
+
+                  <br />
+
+                  <button class="btn btn-block" type="register">Register</button>
+                  <br/>
+                  <p>Already Have account , <a href="{% url 'login' %}" class="text-info" >Click Me</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+</div>

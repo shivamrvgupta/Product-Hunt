@@ -1,0 +1,49 @@
+<div id="loading"></div>
+{% extends "base.html" %} {% block title %} Login {% endblock %} 
+{% block content %}
+{% load humanize %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto ">
+          <div class="card">
+            <div id="card-header" class="card-header bg-primary text-white ">
+            <h4 class="head">Login</h4>
+            </div>
+            <div class="card-body">
+                                            <!--Alerts-->
+                                            {% include 'partials/_alerts.html' %}
+    <form method="POST" autocomplete="off">
+      {% csrf_token %}
+      <br />
+      <div class="wrapper">
+        <div class="input-data">
+          <input type="username" name="username" required />
+          <div class="underline"></div>
+          <label>Username</label>
+        </div>
+        <br />
+
+        <div class="input-data">
+          <input type="password" name="password" required />
+          <div class="underline"></div>
+          <label>Password</label>
+        </div>
+
+        <br />
+
+        <button class="btn btn-block" type="Login">Login</button>
+        <br/>
+        <p>Don't Have account , <a href="{% url 'register' %}" class="text-info" >Click Me</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+</div>

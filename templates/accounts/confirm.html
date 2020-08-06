@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %} Confirm {% endblock %} {% block content %}
+<div id="loading"></div>
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <div class="card text-center">
+          <div class="card-body">
+            <!--Alerts-->
+            {% include 'partials/_alerts.html' %}
+            <form action=""javascript:{document.getElementById('logout').submit()}"" method="POST" id="logout">
+              {% csrf_token %}
+              <h1 class="text-center">Are You Sure?</h1>
+              <p class="text-center">Do you Really Want to LogOut</p>
+              <a href="index" > <button type="submit" class="btn btn-warning align-center">No</button></a>
+              <button type="submit" class="btn btn-info align-center">Yes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

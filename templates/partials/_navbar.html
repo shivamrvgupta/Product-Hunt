@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}"
+      ><div class="typewriter">
+        <h1>
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path
+                d="M40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0s20 8.954 20 20"
+                fill="#FFF"
+              ></path>
+              <path
+                d="M22.667 20H17v-6h5.667a3 3 0 0 1 0 6m0-10H13v20h4v-6h5.667a7 7 0 1 0 0-14"
+                fill="#DA552F"
+              ></path>
+            </g>
+          </svg>
+          Product Hunt
+        </h1>
+      </div></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li 
+        {% if '/' == request.path %}
+          class="nav-item active mr-3"
+        {% else %}
+                    class="nav-item  mr-3"    
+                {% endif %}
+        >
+          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li 
+            {% if 'dashboard' in request.path %}
+                class="nav-item active mr-3"
+            {% else %}
+                class="nav-item  mr-3"    
+            {% endif %}
+            >
+            <a class="nav-link" href="{% url 'dashboard' %}">
+            Welcome {{ user.first_name }} {{ user.last_name }}  (Dashboard)</a>
+        </li>
+        <li class="nav-item mr-3">
+            <a class="nav-link" href="{% url 'confirm' %}">
+            <i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>   
+    {% else %}    
+        <li 
+            {% if 'register' in request.path %}
+                class="nav-item active mr-3"
+            {% else %}
+                class="nav-item  mr-3"    
+            {% endif %}
+            >
+            <a class="nav-link" href="{% url 'register' %}">
+            <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li 
+            {% if 'login' in request.path %}
+                class="nav-item active mr-3"
+            {% else %}
+                class="nav-item  mr-3"    
+            {% endif %}
+            >
+            <a class="nav-link" href="{% url 'login' %}">
+            <i class="fas fa-sign-in-alt"></i>
+            Login</a>
+        </li>
+        
+    {% endif %}    
+      </ul>
+    </div>
+  </div>
+</nav>
