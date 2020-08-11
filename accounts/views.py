@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
-# Create your views here
+# Create your views here.
 
 
 def index(request):
     if request.method == 'POST':
         # Get Form Values
-        first_name = request.POST['first_name']
+        first_name = request.POST['firstname']
         print("First_name ---- {}".format(first_name))
-        last_name = request.POST['last_name']
+        last_name = request.POST['lastname']
         print("Last_name ---- {}".format(last_name))
         username = request.POST['username']
         print("Username ---- {}".format(username))
@@ -52,7 +52,6 @@ def index(request):
             messages.error(request, 'Passwords does not match')
             print("Password doesnot Match")
             return redirect('register')
-            print("User Not Registered")
     else:
         print("User Came to Register")
         return render(request, 'accounts/register.html')
@@ -71,7 +70,7 @@ def login(request):
             messages.success(request, 'You are now Logged in')
             print("User Logged In")
             print("User Authenticated")
-            return redirect('index')
+            return redirect('dashboard')
         else:
             messages.error(request, 'Invalid Creditentials')
             print("User is having Invalid Creditentials")
@@ -83,18 +82,17 @@ def login(request):
 
 
 def logout(request):
-    return render(request, 'accounts/confirm.html')
-
-
-def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
-
-
-def confirm(request):
     if request.method == 'POST':
         auth.logout(request)
         messages.success(request, 'Your are now logged out')
         print("User logged out")
-    else:
-        return render(request, 'accounts/confirm.html')
     return redirect('index')
+
+
+def dashboard(request):
+    user = User()
+
+    context = {
+        'user': user
+    }
+    return render(request, 'accounts/dashboard.html')

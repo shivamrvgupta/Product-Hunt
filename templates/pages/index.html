@@ -1,10 +1,42 @@
 <div id="loading"></div>
-{% extends "base.html" %} {% block title %} Home {% endblock %} 
+{% extends "base.html" %} {% block title %} Home {% endblock %}
 {% block content %} {% load humanize %}
 
 <div class="container">
-  <h1>This is Home</h1>
   <!--Alerts-->
   {% include 'partials/_alerts.html' %}
 </div>
+<br>
+<br>
+<br>
+<div class="container">
+  {% for product in product.all %} {% if product %}
+    <div class="row pt-3">
+      <div class="col-3" onclick="window.location='{% url 'details' product.id %}';" style="cursor:pointer;">
+        <img
+          src="{{ product.icon.url }}"
+          class="img-thumbnail"
+          alt="icons"
+        />
+      </div>
+      <div class="col-6">
+        <h3><a href="{{ product.urls }}">{{ product.title }}</h3></a>
+        <p>{{ product.summary }}</p>
+      </div>
+      <div class="col-3 mt-2">
+        <div class="wrapper">
+          <a href="javascript:{document.getElementById('upvote{{ product.id }}').submit()} "><button class="btn btn-block" type="submit"> <span class="oi oi-caret-top"> </span> Upvote {{ product.vote_total }}</button></a>
+        </div>
+      </div>
+      <form id="upvote{{ product.id }}" method="POST" action="{% url 'upvote' product.id %}">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+</div>
+  {% endif %} {% endfor %}
+  </div>
+<br>
+<br>
+<br>
+
 {% endblock %}

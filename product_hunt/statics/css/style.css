@@ -166,3 +166,16 @@ nav {
 #login {
   text-align: center !important;
 }
+.input-file {
+  outline: #da542fd5 !important;
+}
+.jumbotron {
+  border-radius: 0em !important;
+  background-color: #59405b;
+}
+i {
+  color: #da542fd5;
+}
+.oi {
+  color: #da542fd5;
+}

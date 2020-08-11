@@ -6,6 +6,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto ">
+          {% if user.is_authenticated %}
+          <H1>Yor are Already registered and logged in</H1>
+          {% else %}
           <div class="card">
             <div id="card-header" class="card-header bg-primary text-white ">
             <h4 class="head">Register</h4>
@@ -13,23 +16,26 @@
             <div class="card-body">
                               <!--Alerts-->
                               {% include 'partials/_alerts.html' %}
-              <form method="POST" autocomplete="off">
+            
+              
+            
+              <form method="POST" autocomplete="off" enctype="multipart/form-data">
                 {% csrf_token %}
                 <br />
                 <div class="wrapper">
+                  <br />
                   <div class="input-data">
-                    <input type="text" name="first_name"  required />
+                    <input type="text" name="firstname"  required />
                     <div class="underline"></div>
                     <label>First Name</label>
                   </div>
                   <br />
                   <div class="input-data">
-                    <input type="text" name="last_name"  required />
+                    <input type="text" name="lastname"  required />
                     <div class="underline"></div>
                     <label>Lastname</label>
                   </div>
                 <br />
-                
                   <div class="input-data">
                     <input type="username" name="username"   required />
                     <div class="underline"></div>
@@ -68,9 +74,11 @@
           </div>
           </div>
           </div>
+        {% endif %}    
         </div>
       </div>
     </div>
+
   </section>
   {% endblock %}
 </div>

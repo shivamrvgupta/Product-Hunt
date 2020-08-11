@@ -1,0 +1,59 @@
+<div id="loading"></div>
+{% extends "base.html" %} {% block title %} Create {% endblock %} 
+{% block content %}
+{% load humanize %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto ">
+          <div class="card">
+            <div id="card-header" class="card-header bg-primary text-white ">
+              <h4 class="head">Add Your Product</h4>
+            </div>
+                <div class="card-body">
+                  <!--Alerts-->
+                  {% include 'partials/_alerts.html' %}
+                  <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <br />
+                    <div class="wrapper">
+                      <div class="input-data">
+                        <input type="text" name="title" required>
+                        <div class="underline"></div>
+                        <label>Title</label>
+                      </div>
+                      <br />
+
+                      <div class="input-data">
+                        <input type="textbox" name="body" required />
+                        <div class="underline"></div>
+                        <label>Description</label>
+                      </div>
+
+                      <br />
+                      
+                      <div class="input-data">
+                        <input type="text" name="url"  required />
+                        <div class="underline"></div>
+                        <label>Url</label>
+                      </div>
+                      <br >
+                      <label for="file"> Icon: </label>
+                      <input type="file" name="icon" class="input-file" />
+                      <br />
+                      <br />
+                      <label for="file"> Image:</label>
+                      <input type="file" name="image" class="input-file" />
+                      <br />
+                      <br />
+                      <button class="btn btn-block" type="submit">Add</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+  {% endblock %}
+</div>
